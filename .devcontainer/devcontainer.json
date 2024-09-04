@@ -2,7 +2,7 @@
 	"name": ".NET (C#), Node.js (TypeScript) & MariaDB",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
-	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"workspaceFolder": "/workspaces/MyBookList",
 
 	// Devcontainer funktioner
 	"features": {
