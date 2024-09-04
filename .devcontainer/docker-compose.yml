@@ -5,6 +5,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=mariadb;Port=3306;Database=bookdb;User=mariadb;Password=mariadb;
+    # depends_on:
+    #   - mariadb
+    # volumes:
+    #   - ./API:/app 
 
     volumes:
       - ../..:/workspaces:cached
@@ -18,22 +25,18 @@ services:
     # Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
     # user: root
 
-    # Use "forwardPorts" in **devcontainer.json** to forward an app port locally. 
-    # (Adding the "ports" property to this file will not forward from a Codespace.)
-
   db:
-    image: mariadb:10.4
+    image: mariadb:latest
     restart: unless-stopped
     volumes:
       - mariadb-data:/var/lib/mysql:rw
+    ports:
+      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: mariadb
-      MYSQL_DATABASE: mariadb
+      MYSQL_DATABASE: bookdb
       MYSQL_USER: mariadb
       MYSQL_PASSWORD: mariadb
-
-    # Add "forwardPorts": ["3306"] to **devcontainer.json** to forward MariaDB locally.
-    # (Adding the "ports" property to this file will not forward from a Codespace.)
 
   adminer:
     image: adminer
