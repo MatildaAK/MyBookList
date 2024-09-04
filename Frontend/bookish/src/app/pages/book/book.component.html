@@ -1,0 +1,42 @@
+<h1 class="text-center py-2">Lägg till bok</h1>
+
+<div class="container">
+    <form (ngSubmit)="onFormSubmit()" [formGroup]="bookForm" class="form-inline">
+        <div class="row justify-content-center pt-4 pb-3">
+            <div class="col-12 col-md-8">
+                <div class="mb-3 px-4 d-flex flex-column">
+                    <label for="title" class="fs-5 fw-medium mb-2">Title:</label>
+                    <input type="text" class="form-control w-100" formControlName="title" id="title">
+                </div>
+
+                <div class="mb-3 px-4 d-flex flex-column">
+                    <label for="author" class="fs-5 fw-medium mb-2">Författare:</label>
+                    <input type="text" class="form-control w-100" formControlName="author" id="author">
+                </div>
+
+                <div class="mb-3 px-4 d-flex flex-column">
+                    <label for="genre" class="fs-5 fw-medium mb-2">Genre:</label>
+                    <input type="text" class="form-control w-100" formControlName="genre" id="genre">
+                </div>
+
+                <div class="mb-3 px-4 d-flex flex-column">
+                    <label for="pages" class="fs-5 fw-medium mb-2">Antal sidor:</label>
+                    <input type="text" class="form-control w-100" formControlName="pages" id="pages">
+                </div>
+
+                <div class="mb-3 px-4 d-flex flex-column">
+                    <label for="releseDate" class="fs-5 fw-medium mb-2">Utgivningsdatum:</label>
+                    <input type="date" class="form-control w-50" formControlName="releseDate" id="releseDate">
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="m-4 btn btn-primary">Spara</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<button type="button" aria-expanded="false" routerLink="" routerLinkActive="active">
+    Hem
+</button>

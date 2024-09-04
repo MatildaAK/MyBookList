@@ -1,0 +1,48 @@
+<h2 class="text-center py-2">Uppdatera Bok</h2>
+
+<div class="container">
+  <form [formGroup]="updateBookForm" (ngSubmit)="onSubmit()" class="form-inline">
+    <div class="row justify-content-center pt-4 pb-3">
+      <div class="col-12 col-md-8">
+
+        <div class="mb-3 px-4 d-flex flex-column">
+          <label for="title" class="fs-5 fw-medium mb-2">Titel:</label>
+          <input type="text" id="title" class="form-control w-100" formControlName="title">
+        </div>
+
+        <div class="mb-3 px-4 d-flex flex-column">
+          <label for="author" class="fs-5 fw-medium mb-2">Författare:</label>
+          <input type="text" id="author" class="form-control w-100" formControlName="author">
+        </div>
+
+        <div class="mb-3 px-4 d-flex flex-column">
+          <label for="genre" class="fs-5 fw-medium mb-2">Genre:</label>
+          <input type="text" id="genre" class="form-control w-100" formControlName="genre">
+        </div>
+
+        <div class="mb-3 px-4 d-flex flex-column">
+          <label for="pages" class="fs-5 fw-medium mb-2">Antal Sidor:</label>
+          <input type="number" id="pages" class="form-control w-100" formControlName="pages">
+        </div>
+
+        <div class="mb-3 px-4 d-flex flex-column">
+          <label for="releseDate" class="fs-5 fw-medium mb-2">Utgivningsdatum:</label>
+          <input type="date" id="releseDate" class="form-control w-50" formControlName="releseDate">
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="m-4 btn btn-primary" [disabled]="updateBookForm.invalid">Uppdatera Bok</button>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<div class="text-center">
+  <button type="button" class="btn addBtn mt-5" aria-expanded="false" routerLink="" routerLinkActive="active">
+    Avbryt
+  </button>
+</div>
+

@@ -1,0 +1,52 @@
+<div class="text-center">
+  <button id="addBtn" type="button" class="btn mt-5 mb-2" aria-expanded="false" routerLink="/book" routerLinkActive="active">
+    Lägg till bok
+  </button>
+</div>
+
+  @if (books$ | async;as books) {
+    @if (books.length > 0) {
+      <div class="container">
+        <ul class="list-unstyled mx-auto">
+          @for (item of books; track $index){
+            <li class="m-4">
+              <div class="text-center py-2">
+                <div>
+                  <span class="fs-4 fw-medium">{{item.title}}</span>
+                </div>
+                <div>
+                  <span class="fs-5">{{item.author}}</span>
+                </div>
+                <div>
+                  <span>
+                    <span>
+                      <i class="fa-solid fa-calendar-days"></i>
+                      <span> {{item.releseDate}}</span>
+                    </span>
+                  </span>
+                </div>
+                <div>
+                  <span>
+                    <span>
+                      <i class="fa-solid fa-book-open"></i>
+                      <span> {{item.pages}} sidor</span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div class="row justify-content-center mx-4">
+                <button id="updateBtn" type="button" class="btn p-2 my-2 m-md-4 col-sm-2" [routerLink]="['/updatebook', item.id]" routerLinkActive="active">Uppdatera bok</button>
+                <button type="button" class="btn btn-danger p-2 my-2 m-md-4 col-sm-2" (click)="onDelete(item.id)"><i class="fa-solid fa-trash-can"></i>   Radera</button>
+              </div>
+          </li>
+          }
+        </ul>
+      </div>
+
+    } @else {
+      <p>Hittade inga böcker ....</p>
+    }
+  }
+
+
+

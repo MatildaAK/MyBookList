@@ -1,0 +1,10 @@
+li {
+ background-color: rgb(193, 238, 238);
+}
+#updateBtn, #addBtn{
+    background-color: whitesmoke;
+    border: solid 1px black;
+}
+#updateBtn:hover, #addBtn:hover{
+    background-color: skyblue;
+}
