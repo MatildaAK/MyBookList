@@ -1,0 +1,37 @@
+{
+	"name": ".NET (C#), Node.js (TypeScript) & MariaDB",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+
+	// Devcontainer funktioner
+	"features": {
+		"ghcr.io/devcontainers/features/node:1": {
+			"version": "18"
+		}
+	},
+
+	// Anpassade inställningar för verktyg
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "bash"
+			},
+			"extensions": [
+				"ms-dotnettools.csharp",
+				"esbenp.prettier-vscode",
+				"dbaeumer.vscode-eslint",
+				"angular.ng-template"
+			]
+		}
+	},
+
+	// Exponerar portar för åtkomst
+	"forwardPorts": [4200, 5000, 5001],
+
+	// Kommando att köra efter att containern skapas
+	"postCreateCommand": "dotnet restore",
+
+	// Användarinställningar
+	"remoteUser": "vscode"
+}
